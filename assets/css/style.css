@@ -2630,3 +2630,848 @@ ol {
         justify-content: center;
     }
 }
+
+/* ============================================
+   MAP MARKER STYLES
+   ============================================ */
+.custom-marker {
+    background: transparent;
+}
+
+.marker-container {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.marker-dot {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 3px solid white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.marker-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+/* Pulse Animation for High Risk */
+.pulse-high .marker-ring {
+    animation: pulse-ring 1.5s ease-out infinite;
+}
+
+@keyframes pulse-ring {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(2);
+        opacity: 0;
+    }
+}
+
+/* Map Popup Styles */
+.map-popup {
+    font-family: 'Kanit', sans-serif;
+    min-width: 180px;
+}
+
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+    margin-bottom: 10px;
+}
+
+.popup-icon {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.popup-header strong {
+    font-size: 1rem;
+    color: var(--text-primary);
+}
+
+.popup-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.popup-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.popup-stat .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.popup-stat .stat-value {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Leaflet Popup Override */
+.leaflet-popup-content-wrapper {
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 0;
+}
+
+.leaflet-popup-content {
+    margin: 12px 14px;
+    color: var(--text-primary);
+}
+
+.leaflet-popup-tip {
+    background: var(--bg-card);
+}
+
+/* Layer Control Override */
+.leaflet-control-layers {
+    background: var(--bg-card) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: none !important;
+}
+
+.leaflet-control-layers-expanded {
+    padding: 10px 14px !important;
+}
+
+.leaflet-control-layers-base label,
+.leaflet-control-layers-overlays label {
+    font-family: 'Kanit', sans-serif;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+/* Scale Control Override */
+.leaflet-control-scale-line {
+    background: var(--bg-card) !important;
+    border-color: var(--border-medium) !important;
+    color: var(--text-secondary) !important;
+    font-family: 'Kanit', sans-serif !important;
+    font-size: 0.75rem !important;
+}
+
+/* ============================================
+   MAPLIBRE GL JS STYLES
+   ============================================ */
+.maplibregl-map {
+    font-family: 'Kanit', sans-serif;
+}
+
+.maplibregl-ctrl-group {
+    background: var(--bg-card) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-lg) !important;
+    border: none !important;
+    overflow: hidden;
+}
+
+.maplibregl-ctrl-group button {
+    width: 36px !important;
+    height: 36px !important;
+    border: none !important;
+}
+
+.maplibregl-ctrl-group button:hover {
+    background: var(--primary-50) !important;
+}
+
+.maplibregl-ctrl-scale {
+    background: var(--bg-card) !important;
+    border-color: var(--border-medium) !important;
+    border-radius: var(--radius-md) !important;
+    font-family: 'Kanit', sans-serif !important;
+    font-size: 0.75rem !important;
+    color: var(--text-secondary) !important;
+    padding: 2px 6px !important;
+}
+
+/* MapLibre Popup */
+.maplibregl-popup-content {
+    background: var(--bg-card) !important;
+    border-radius: var(--radius-lg) !important;
+    box-shadow: var(--shadow-xl) !important;
+    padding: 12px 14px !important;
+    font-family: 'Kanit', sans-serif !important;
+}
+
+.maplibregl-popup-tip {
+    border-top-color: var(--bg-card) !important;
+}
+
+.maplibregl-popup-close-button {
+    font-size: 20px;
+    color: var(--text-muted);
+    padding: 4px 8px;
+}
+
+.maplibregl-popup-close-button:hover {
+    color: var(--text-primary);
+    background: transparent;
+}
+
+/* MapLibre Marker */
+.maplibre-marker {
+    cursor: pointer;
+}
+
+/* Map Style Switcher */
+.map-style-switcher {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    display: flex;
+    gap: 4px;
+    background: var(--bg-card);
+    padding: 6px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+}
+
+.style-btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    font-family: 'Kanit', sans-serif;
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.style-btn:hover {
+    background: var(--primary-50);
+    color: var(--primary-600);
+}
+
+.style-btn.active {
+    background: var(--primary-100);
+    color: var(--primary-700);
+}
+
+@media (max-width: 768px) {
+    .map-style-switcher {
+        top: auto;
+        bottom: 50px;
+        left: 10px;
+        right: 10px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .style-btn {
+        flex: 1;
+        min-width: 70px;
+        padding: 6px 8px;
+        font-size: 0.7rem;
+    }
+}
+
+/* MapLibre Attribution */
+.maplibregl-ctrl-attrib {
+    background: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.65rem !important;
+}
+
+/* ============================================
+   WEATHER LAYER CONTROL
+   ============================================ */
+.weather-layer-control {
+    position: absolute;
+    bottom: 50px;
+    right: 10px;
+    z-index: 1000;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    min-width: 200px;
+    overflow: hidden;
+}
+
+.weather-control-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 14px;
+    background: var(--gradient-blue);
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.weather-control-header i {
+    font-size: 1rem;
+}
+
+.weather-control-body {
+    padding: 8px 0;
+}
+
+.weather-layer-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.weather-layer-item:hover {
+    background: var(--primary-50);
+    color: var(--text-primary);
+}
+
+.weather-layer-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-500);
+    cursor: pointer;
+}
+
+.weather-layer-item input[type="checkbox"]:checked+span {
+    color: var(--primary-600);
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .weather-layer-control {
+        bottom: 120px;
+        right: 10px;
+        left: auto;
+        min-width: 180px;
+    }
+
+    .weather-control-header {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .weather-layer-item {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Collapsed State */
+.weather-layer-control.collapsed {
+    min-width: auto;
+    background: transparent;
+    box-shadow: none;
+}
+
+.weather-layer-control.collapsed .weather-control-expanded {
+    display: none;
+}
+
+.weather-layer-control.collapsed .weather-control-collapsed {
+    display: flex;
+}
+
+.weather-control-collapsed {
+    display: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-blue);
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    cursor: grab;
+    box-shadow: var(--shadow-lg), var(--shadow-glow-blue);
+    transition: var(--transition-base);
+}
+
+.weather-control-collapsed:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl), var(--shadow-glow-blue);
+}
+
+.weather-control-collapsed:active {
+    cursor: grabbing;
+}
+
+.weather-control-expanded {
+    display: block;
+}
+
+/* Collapse Button */
+.weather-collapse-btn {
+    margin-left: auto;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.weather-collapse-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.weather-control-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Weather Tooltip */
+.weather-tooltip {
+    position: absolute;
+    z-index: 1001;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 12px 16px;
+    min-width: 180px;
+    pointer-events: none;
+    font-family: 'Kanit', sans-serif;
+}
+
+.tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border-light);
+    font-size: 0.9rem;
+}
+
+.tooltip-row:last-child {
+    border-bottom: none;
+}
+
+.tooltip-row span {
+    color: var(--text-secondary);
+}
+
+.tooltip-row strong {
+    color: var(--primary-600);
+    font-weight: 600;
+}
+
+/* ============================================
+   AI SUMMARY SECTION
+   ============================================ */
+.ai-summary-section {
+    padding: 0 0 2rem;
+}
+
+.ai-summary-panel {
+    padding: 0;
+    overflow: hidden;
+}
+
+.ai-summary-loading,
+.ai-summary-error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 2rem;
+    color: var(--text-muted);
+}
+
+.ai-summary-loading i {
+    font-size: 1.5rem;
+    color: var(--primary-500);
+}
+
+.ai-summary-error i {
+    color: #EF4444;
+}
+
+.ai-summary-content {
+    padding: 0;
+}
+
+.ai-summary-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem 1.5rem;
+    background: var(--gradient-blue);
+    color: white;
+}
+
+.ai-summary-header .ai-icon {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+}
+
+.ai-summary-header .ai-title {
+    flex: 1;
+}
+
+.ai-summary-header .title-text {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+}
+
+.ai-summary-header .update-time {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.risk-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+}
+
+.ai-summary-text {
+    padding: 1.25rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-primary);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.ai-summary-stats {
+    display: flex;
+    justify-content: space-around;
+    padding: 1rem 1.5rem;
+    background: var(--bg-subtle);
+}
+
+.ai-summary-stats .stat-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+}
+
+.ai-summary-stats .stat-item i {
+    color: var(--primary-500);
+}
+
+.ai-summary-stats .stat-item span {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ============================================
+   AI CHATBOT
+   ============================================ */
+.chatbot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+}
+
+.chatbot-fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--gradient-blue);
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: var(--shadow-xl), var(--shadow-glow-blue);
+    transition: var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-fab:hover {
+    transform: scale(1.1);
+}
+
+.chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 380px;
+    max-width: calc(100vw - 40px);
+    height: 500px;
+    max-height: calc(100vh - 120px);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.95);
+    transition: var(--transition-base);
+}
+
+.chatbot-window.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+.chatbot-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--gradient-blue);
+    color: white;
+}
+
+.chatbot-avatar {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+}
+
+.chatbot-info {
+    flex: 1;
+}
+
+.chatbot-name {
+    font-weight: 600;
+    font-size: 1rem;
+    display: block;
+}
+
+.chatbot-status {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.chatbot-status::before {
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #22C55E;
+    border-radius: 50%;
+}
+
+.chatbot-close {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.chatbot-close:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-message {
+    display: flex;
+    gap: 10px;
+    max-width: 85%;
+}
+
+.chat-message.user {
+    margin-left: auto;
+    flex-direction: row-reverse;
+}
+
+.chat-message .message-avatar {
+    width: 32px;
+    height: 32px;
+    background: var(--primary-100);
+    color: var(--primary-600);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+.chat-message .message-content {
+    padding: 12px 16px;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.chat-message.bot .message-content {
+    background: var(--bg-subtle);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.chat-message.user .message-content {
+    background: var(--gradient-blue);
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+/* Typing Indicator */
+.typing-dots {
+    display: flex;
+    gap: 4px;
+    padding: 4px 0;
+}
+
+.typing-dots span {
+    width: 8px;
+    height: 8px;
+    background: var(--text-muted);
+    border-radius: 50%;
+    animation: typing-bounce 1.4s infinite ease-in-out;
+}
+
+.typing-dots span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing-dots span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-dots span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing-bounce {
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    40% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.chatbot-input-container {
+    display: flex;
+    gap: 10px;
+    padding: 16px;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-card);
+}
+
+.chatbot-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--border-medium);
+    border-radius: 24px;
+    font-size: 0.9rem;
+    font-family: 'Kanit', sans-serif;
+    outline: none;
+    transition: var(--transition-fast);
+}
+
+.chatbot-input:focus {
+    border-color: var(--primary-500);
+    box-shadow: 0 0 0 3px var(--primary-100);
+}
+
+.chatbot-send {
+    width: 44px;
+    height: 44px;
+    background: var(--gradient-blue);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.chatbot-send:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+    .chatbot-window {
+        width: 100%;
+        max-width: none;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        height: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+
+    .chatbot-container {
+        bottom: 15px;
+        right: 15px;
+    }
+}

@@ -24,9 +24,11 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <!-- Leaflet 1.4.0 (Required for Windy) -->
-    <script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js"></script>
-    <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+
+    <!-- MapTiler SDK + Weather Module -->
+    <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.min.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/maptiler-weather/v2.0.0/maptiler-weather.umd.min.js"></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
@@ -286,20 +288,62 @@
                 <div class="lg:col-span-2 glass rounded-2xl p-6">
                     <div class="flex items-center justify-between mb-4">
                         <h2 class="text-xl font-semibold">แผนที่พื้นที่เสี่ยงภัย</h2>
-                        <div class="flex gap-2">
-                            <button
-                                class="px-3 py-1 text-xs rounded-full bg-primary-500/20 text-primary-400">ดาวเทียม</button>
-                            <button class="px-3 py-1 text-xs rounded-full bg-white/5 text-gray-400">แผนที่ปกติ</button>
+                        <!-- Weather Layer Toggle Buttons -->
+                        <div class="flex gap-2 flex-wrap" id="weatherLayerBtns">
+                            <button onclick="setWeatherLayer('precipitation')" data-layer="precipitation"
+                                class="weather-layer-btn active px-3 py-1 text-xs rounded-full bg-primary-500/30 text-primary-300 border border-primary-500/50 transition hover:bg-primary-500/50">
+                                🌧️ ฝน
+                            </button>
+                            <button onclick="setWeatherLayer('temperature')" data-layer="temperature"
+                                class="weather-layer-btn px-3 py-1 text-xs rounded-full bg-white/5 text-gray-400 border border-white/10 transition hover:bg-white/10">
+                                🌡️ อุณหภูมิ
+                            </button>
+                            <button onclick="setWeatherLayer('wind')" data-layer="wind"
+                                class="weather-layer-btn px-3 py-1 text-xs rounded-full bg-white/5 text-gray-400 border border-white/10 transition hover:bg-white/10">
+                                💨 ลม
+                            </button>
+                            <button onclick="setWeatherLayer('radar')" data-layer="radar"
+                                class="weather-layer-btn px-3 py-1 text-xs rounded-full bg-white/5 text-gray-400 border border-white/10 transition hover:bg-white/10">
+                                📡 เรดาร์
+                            </button>
                         </div>
                     </div>
-                    <div id="map" class="relative h-80 md:h-96 rounded-xl overflow-hidden bg-dark-900 z-0">
-                        <!-- Loading Indicator -->
-                        <div id="mapLoader"
-                            class="absolute inset-0 flex flex-col items-center justify-center z-50 bg-dark-900/80 backdrop-blur-sm">
-                            <div
-                                class="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-3">
+
+                    <!-- Map Container -->
+                    <div class="relative">
+                        <div id="map" class="relative h-80 md:h-96 rounded-xl overflow-hidden bg-dark-900 z-0">
+                            <!-- Loading Indicator -->
+                            <div id="mapLoader"
+                                class="absolute inset-0 flex flex-col items-center justify-center z-50 bg-dark-900/80 backdrop-blur-sm">
+                                <div
+                                    class="w-10 h-10 border-4 border-primary-500 border-t-transparent rounded-full animate-spin mb-3">
+                                </div>
+                                <span class="text-primary-300 text-sm animate-pulse">กำลังโหลดแผนที่...</span>
                             </div>
-                            <span class="text-primary-300 text-sm animate-pulse">กำลังโหลดแผนที่...</span>
+                        </div>
+
+                        <!-- Weather Info Panel (Top Right) -->
+                        <div id="weatherInfoPanel"
+                            class="absolute top-3 right-3 glass rounded-xl p-3 min-w-[160px] hidden z-40">
+                            <div class="text-xs text-gray-400 mb-1">📍 <span id="weatherLocation">-</span></div>
+                            <div class="text-lg font-bold text-white" id="weatherValue">-</div>
+                            <div class="text-xs text-gray-400" id="weatherUnit">-</div>
+                        </div>
+
+                        <!-- Timeline Controls (Bottom) -->
+                        <div id="timelineControls" class="absolute bottom-3 left-3 right-3 glass rounded-xl p-3 z-40">
+                            <div class="flex items-center gap-3">
+                                <button onclick="toggleWeatherAnimation()" id="playPauseBtn"
+                                    class="w-8 h-8 rounded-full bg-primary-500/30 text-primary-300 flex items-center justify-center hover:bg-primary-500/50 transition">
+                                    <i class="fa-solid fa-play text-xs" id="playPauseIcon"></i>
+                                </button>
+                                <div class="flex-1">
+                                    <input type="range" id="timelineSlider" min="0" max="100" value="0"
+                                        class="w-full h-1 bg-white/20 rounded-full appearance-none cursor-pointer slider-thumb">
+                                </div>
+                                <div class="text-xs text-gray-300 min-w-[80px] text-right" id="timelineLabel">ปัจจุบัน
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

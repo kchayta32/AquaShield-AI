@@ -8,10 +8,18 @@ const CONFIG = {
     OWM_KEY: '58ef4597b70cb08b02da5e440ac55c1b',
     TOMORROW_KEY: '2ViaoMLiUrf4jRKhzSkRwxSiw83BODhk',
 
-    // Geo Locations (Bangkok)
-    LAT: 13.7563,
-    LON: 100.5018,
+    // MapTiler Weather API
+    MAPTILER_KEY: 'fLfF1eDd4YT4yqixzTuJ',
+
+    // Typhoon AI API (Thai LLM)
+    TYPHOON_API_KEY: 'sk-ZtLbj1CsBusuCbW0LPbNE2UWOJpqTKW9AIteX7bTzV9CaOTE',
+    TYPHOON_API_URL: 'https://api.opentyphoon.ai/v1/chat/completions',
+
+    // Geo Locations (Bangkok / Samut Prakan)
+    LAT: 13.5991,
+    LON: 100.5998,
 
     // Windy API
     WINDY_KEY: '5pmq5UQl4x25EtkQ88OooZ6o7XvXBCmC'
 };
+

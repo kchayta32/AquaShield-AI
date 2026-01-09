@@ -8,10 +8,13 @@ const CONFIG = {
     OWM_KEY: '58ef4597b70cb08b02da5e440ac55c1b',
     TOMORROW_KEY: '2ViaoMLiUrf4jRKhzSkRwxSiw83BODhk',
 
+    // MapTiler API (Weather SDK)
+    MAPTILER_KEY: 'fLfF1eDd4YT4yqixzTuJ',
+
     // Geo Locations (Bangkok)
     LAT: 13.7563,
     LON: 100.5018,
 
-    // Windy API
+    // Windy API (Legacy)
     WINDY_KEY: '5pmq5UQl4x25EtkQ88OooZ6o7XvXBCmC'
 };

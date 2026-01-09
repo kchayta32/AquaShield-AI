@@ -20,8 +20,12 @@
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Leaflet Map CSS -->
+    <!-- Leaflet Map CSS (Fallback) -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- MapLibre GL JS CSS (3D Map) -->
+    <link href="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.css" rel="stylesheet" />
+
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="<?php echo asset_url('css/style.css'); ?>">

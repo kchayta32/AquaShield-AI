@@ -65,11 +65,15 @@
 </footer>
 
 <!-- Scripts -->
-<!-- Leaflet JS -->
+<!-- MapLibre GL JS (3D Map with Tilt & Rotation) -->
+<script src="https://unpkg.com/maplibre-gl@3.6.2/dist/maplibre-gl.js"></script>
+
+<!-- Leaflet JS (Fallback) -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <!-- Windy Map (Optional) -->
 <script src="https://api.windy.com/assets/map-forecast/libBoot.js"></script>
+
 
 <!-- Chart.js -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -82,7 +86,9 @@
 <script src="<?php echo asset_url('js/ai-model.js'); ?>"></script>
 <script src="<?php echo asset_url('js/api.js'); ?>"></script>
 <script src="<?php echo asset_url('js/ui.js'); ?>"></script>
+<script src="<?php echo asset_url('js/typhoon-ai.js'); ?>"></script>
 <script src="<?php echo asset_url('js/app.js'); ?>"></script>
 </body>
+
 
 </html>

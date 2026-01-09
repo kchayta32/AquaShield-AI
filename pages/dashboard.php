@@ -72,10 +72,19 @@
                 </div>
             </div>
         </div>
+</section>
+
+<!-- AI Summary Section -->
+<section class="ai-summary-section">
+    <div class="dashboard-container">
+        <div class="ai-summary-panel glass-card" id="aiSummary">
+            <!-- AI content will be loaded here -->
+        </div>
     </div>
 </section>
 
 <!-- Map & Chart Section -->
+
 <section class="map-section">
     <div class="dashboard-container">
         <div class="map-grid">
