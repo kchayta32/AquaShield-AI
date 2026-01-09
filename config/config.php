@@ -26,7 +26,8 @@ $page_titles = [
     'home' => 'หน้าแรก - ' . APP_NAME,
     'dashboard' => 'แดชบอร์ดเตือนภัย - ' . APP_NAME,
     'team' => 'ทีมพัฒนา AiCE_SSRU - ' . APP_NAME,
-    'about' => 'เกี่ยวกับโครงการ - ' . APP_NAME
+    'about' => 'เกี่ยวกับโครงการ - ' . APP_NAME,
+    'updates' => 'ข่าวอัพเดทระบบ - ' . APP_NAME
 ];
 
 

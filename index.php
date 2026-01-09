@@ -17,7 +17,7 @@ require_once 'config/config.php';
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
 // Allowed pages (whitelist for security)
-$allowed_pages = ['home', 'dashboard', 'team', 'about'];
+$allowed_pages = ['home', 'dashboard', 'team', 'about', 'updates'];
 
 
 

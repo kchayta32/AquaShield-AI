@@ -61,7 +61,28 @@
     </div>
 </section>
 
+<!-- Update Banner -->
+<section class="update-banner">
+    <div class="container">
+        <div class="banner-content glass-card">
+            <div class="banner-icon pulse-glow">
+                <i class="fa-solid fa-bullhorn"></i>
+            </div>
+            <div class="banner-text">
+                <span class="banner-badge">🆕 NEW</span>
+                <h3>AquaShield AI v2.0 - Typhoon AI Integration</h3>
+                <p>เพิ่ม AI Chatbot และระบบสรุปสถานการณ์อัตโนมัติ พร้อมแผนที่ 3D!</p>
+            </div>
+            <a href="?page=updates" class="banner-btn">
+                <span>อ่านเพิ่มเติม</span>
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
 <!-- Features Section -->
+
 <section id="features" class="features-section">
     <div class="section-container">
         <div class="section-header">
